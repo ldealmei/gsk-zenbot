@@ -22,6 +22,7 @@ def get_random_cert() :
     return cert
 
 def task_generator():
+
     project_id = uuid.uuid4()
     deadline  = datetime.datetime.combine(datetime.date.today() + datetime.timedelta(days = randint(1,21)), datetime.time(0))
     creator = ''
@@ -114,11 +115,12 @@ def resolve_conflicts(events) :
         return [ev for ev in events if ev not in drop_events]
 
 
-params={'id':'',
+params={'id':uuid.uuid4(),
         'events' : resolve_conflicts([event_generator() for i in np.arange(50)]),
         'tasks' : [task_generator() for i in np.arange(100)]}
 
 # print(params['tasks'])
+
 plot_events(params['events'])
 
 test_bot = Zenbot(params)
