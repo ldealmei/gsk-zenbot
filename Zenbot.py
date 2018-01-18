@@ -27,12 +27,12 @@ class Zenbot(object):
 			pass
 
 	#collects events of the day, most important tasks, and creates a schedule from them
-	def schedule(self):
-		t = datetime.datetime.today()
-		lastmomenttoday = datetime.datetime(t.year, t.month, t.day+1, 0, 0, 0)
-		eventstoday = [event for event in self.events if event.start < lastmomenttoday and event.start > t]
-		taskstoday = prioritisetasks()
-		self.schedule = Schedule(eventstoday, taskstoday)
+	# def schedule(self):
+	# 	t = datetime.datetime.today()
+	# 	lastmomenttoday = datetime.datetime(t.year, t.month, t.day+1, 0, 0, 0)
+	# 	eventstoday = [event for event in self.events if event.start < lastmomenttoday and event.start > t]
+	# 	taskstoday = prioritisetasks()
+	# 	self.schedule = Schedule(eventstoday, taskstoday)
 
 	#for every key in self.required_certifications, check if it is in self.certifications & up to date. If not either of these, create a training object
 	def new_trainings(self):
