@@ -7,14 +7,15 @@ def get_trainings():
 
 def show_all_courses():
 	df = get_trainings()
-	return df['Item Title'].unique().tolist()
+	return df['Item Title'].unique()
 
 def show_all_past_trainings():
 	df = get_trainings()
 	return df.loc[df['Completion Status'].str.endswith('_C', na=False)]
 
-def show_past_trainings_user():
-	
+def show_past_trainings_user(user):
+	df = get_trainings()
+	return df.loc[show_all_past_trainings()['Name'].str.contains(user)]
 
 def show_upcoming_trainings():
 	pass
@@ -24,3 +25,7 @@ def show_deadline():
 
 def show_state_trainings():
 	pass
+
+
+if __name__ == '__main___':
+	x = show_past_trainings_user()
