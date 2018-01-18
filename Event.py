@@ -25,8 +25,8 @@ class Meeting(Event):
         # self.urgency = urgency
 
 class Training(Event) :
-    def __init__(self, start, end, loc):
-        Event.__init__(self,start, end, loc, certification )
+    def __init__(self, start, end, loc, certification):
+        Event.__init__(self,start, end, loc)
         self.certification = certification
         # self.last_certified = last_certified #datetime object
         # self.validity = validity # datetime object
