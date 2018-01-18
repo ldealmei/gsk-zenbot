@@ -12,6 +12,7 @@ class Task:
 
         self.date_completed = None
 
+
         self.project_id = project_id
         self.description = description # description string
         self.deadline = deadline  # datetime object
