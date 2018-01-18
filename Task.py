@@ -19,7 +19,7 @@ class Task:
         self.dur_estim = dur_estim #timedelta object
         self.importance = importance  # on a scale 1-3
         self.effort = effort  # on a scale 1-5
-        self.category = category
+        self.category = category # user-defined category
 
     def assign_to_project(self):
         #TODO

@@ -87,10 +87,27 @@ class Zenbot(object):
             'Please enter the time you spent on this task today in hours, e.g. 6.5 h for 6 hours, 30 minutes.'))
         Task.time_spent += datetime.timedelta(hours=Hours)
 
+    def make_today_schedule(self) :
 
-    def prioritise_tasks(self):
-        
-        pass
+        events = [event for event in self.events if datetime.datetime.today.date() == event.start.date()]
+
+        time_available = datetime.timedelta(hours=8) - sum([ev.end - ev.start for ev in events], datetime.timedelta(0))
+
+        tasks = [self._ranking_function(task) for task in self.tasks]
+
+        return Schedule(events, self._select_tasks(tasks, time_available))
+
+    def _select_tasks(self, tasks, time_available):
+        # TODO: ASSUMPTION : Tasks are small (a task cannot be more than 2-3 hour long)
+
+        selection = []
+
+        for task in tasks :
+            if time_available - (task.dur_estim) > datetime.timedelta(0) :
+                selection.append(task)
+                time_available = time_available - (task.dur_estim)
+
+        return selection
 
     def _get_threshold(self, Task):
         # TODO: Make sense of this - super arbitrary

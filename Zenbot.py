@@ -1,21 +1,26 @@
 import pandas as pd
 import uuid
 import datetime
+import Task
+import Schedule
+import Project
+import Event
 
 #zenbot avatar
 class Zenbot(object):
-	def __init__ (self, personalid):
-		#dictionary of personal id
-		self.personalid = personalid
+	def __init__ (self, params):
+		# dictionary of personal id
+		self.personal_id = params['id']
 		self.zenbotid = uuid.uuid4()
 		#unclear how access is granted to new bots
 		self.accessdict = {'level1': zenbotid}
 		# the following four must come from apis or something
 		self.certifications = {}
 		self.requiredcertifications = {}
-		self.events = []
-		self.tasks = []
+		self.events = params['events']
+		self.tasks = params['tasks']
 		self.schedule = None
+
 
 	#creates a task and adds it to its list of tasks if appropriate
 	def add_task(self, zenbotid, params):
@@ -47,7 +52,6 @@ class Zenbot(object):
 
 		if training:
 			self.events.append(training)
-
 
 	#analyse zenbots stats that are relevant for current actions & evaluation
 	def current_analysis(self):

@@ -14,4 +14,4 @@ class Schedule :
 
     def get_workload(self):
         #TODO : Compute workload based on the schedule
-        return 
+        return

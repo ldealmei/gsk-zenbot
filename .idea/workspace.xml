@@ -2,13 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a1535fc9-d8e9-480c-9c36-1da32c29078d" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/temp.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/demo.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/training_courses.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Event.py" afterPath="$PROJECT_DIR$/Event.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Schedule.py" afterPath="$PROJECT_DIR$/Schedule.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Task.py" afterPath="$PROJECT_DIR$/Task.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/outlook_connect.py" afterPath="$PROJECT_DIR$/outlook_connect.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/python-sample-send-mail-master/outlook_api.py" afterPath="$PROJECT_DIR$/python-sample-send-mail-master/outlook_api.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/python-sample-send-mail-master/static/templates/calendar.html" afterPath="$PROJECT_DIR$/python-sample-send-mail-master/static/templates/calendar.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/python-sample-send-mail-master/static/templates/mailform.html" afterPath="$PROJECT_DIR$/python-sample-send-mail-master/static/templates/mailform.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Zenbot.py" afterPath="$PROJECT_DIR$/Zenbot.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/temp.py" afterPath="$PROJECT_DIR$/temp.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -19,33 +20,46 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="temp.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/temp.py">
+      <file leaf-file-name="demo.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/demo.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="254">
-              <caret line="91" column="8" lean-forward="false" selection-start-line="91" selection-start-column="8" selection-end-line="91" selection-end-column="8" />
+            <state relative-caret-position="677">
+              <caret line="53" column="33" lean-forward="false" selection-start-line="53" selection-start-column="33" selection-end-line="53" selection-end-column="33" />
               <folding>
-                <element signature="e#0#11#0" expanded="true" />
-                <element signature="e#480#561#0" expanded="false" />
-                <element signature="e#595#910#0" expanded="false" />
-                <element signature="e#949#1397#0" expanded="false" />
-                <element signature="e#1437#2344#0" expanded="false" />
-                <element signature="e#2387#2391#0" expanded="false" />
-                <element signature="e#2496#2500#0" expanded="false" />
-                <element signature="e#2561#2565#0" expanded="false" />
-                <element signature="e#2603#2758#0" expanded="false" />
-                <element signature="e#2812#2977#0" expanded="false" />
-                <marker date="1516247802000" expanded="false" signature="3020:3404" ph="..." />
+                <element signature="e#0#13#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Event.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="training_courses.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/training_courses.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="78">
+              <caret line="255" column="0" lean-forward="true" selection-start-line="255" selection-start-column="0" selection-end-line="255" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Zenbot.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Zenbot.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1013">
+              <caret line="157" column="30" lean-forward="false" selection-start-line="157" selection-start-column="30" selection-end-line="157" selection-end-column="30" />
+              <folding>
+                <element signature="e#0#19#0" expanded="true" />
+                <element signature="e#4820#5448#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Event.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Event.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
-              <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+            <state relative-caret-position="285">
+              <caret line="15" column="64" lean-forward="false" selection-start-line="15" selection-start-column="64" selection-end-line="15" selection-end-column="64" />
               <folding />
             </state>
           </provider>
@@ -64,8 +78,8 @@
       <file leaf-file-name="Schedule.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Schedule.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="8" column="45" lean-forward="false" selection-start-line="8" selection-start-column="45" selection-end-line="8" selection-end-column="45" />
+            <state relative-caret-position="304">
+              <caret line="16" column="14" lean-forward="false" selection-start-line="16" selection-start-column="14" selection-end-line="16" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -74,10 +88,11 @@
       <file leaf-file-name="Task.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Task.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+            <state relative-caret-position="95">
+              <caret line="5" column="111" lean-forward="false" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="111" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
+                <marker date="1516256422000" expanded="true" signature="155:734" ph="..." />
               </folding>
             </state>
           </provider>
@@ -101,6 +116,8 @@
       <find>secret_ke</find>
       <find>stat</find>
       <find>secret_key</find>
+      <find>priori</find>
+      <find>persona</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -120,11 +137,14 @@
         <option value="$PROJECT_DIR$/python-sample-send-mail-master/static/templates/calendar.html" />
         <option value="$PROJECT_DIR$/python-sample-send-mail-master/static/templates/mailform.html" />
         <option value="$PROJECT_DIR$/python-sample-send-mail-master/outlook_api.py" />
-        <option value="$PROJECT_DIR$/Schedule.py" />
         <option value="$PROJECT_DIR$/Project.py" />
-        <option value="$PROJECT_DIR$/Event.py" />
-        <option value="$PROJECT_DIR$/Task.py" />
         <option value="$PROJECT_DIR$/temp.py" />
+        <option value="$PROJECT_DIR$/Schedule.py" />
+        <option value="$PROJECT_DIR$/Task.py" />
+        <option value="$PROJECT_DIR$/Zenbot.py" />
+        <option value="$PROJECT_DIR$/courses.csv" />
+        <option value="$PROJECT_DIR$/demo.py" />
+        <option value="$PROJECT_DIR$/Event.py" />
       </list>
     </option>
   </component>
@@ -255,7 +275,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="4" />
+      <option name="time" value="5" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -280,9 +300,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-379">
           <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -306,16 +324,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="351">
           <caret line="54" column="28" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="262" selection-end-column="0" />
-          <folding>
-            <element signature="e#183#196#0" expanded="true" />
-            <element signature="e#1025#1195#0" expanded="false" />
-            <element signature="e#1251#1596#0" expanded="false" />
-            <element signature="e#4321#4443#0" expanded="false" />
-            <element signature="e#4484#4946#0" expanded="false" />
-            <element signature="e#5015#6313#0" expanded="false" />
-            <element signature="e#8429#9130#0" expanded="false" />
-            <element signature="e#9187#10427#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -335,28 +344,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Project.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="15" column="12" lean-forward="false" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/python-sample-send-mail-master/outlook_api.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
           <caret line="43" column="29" lean-forward="false" selection-start-line="43" selection-start-column="29" selection-end-line="43" selection-end-column="29" />
-          <folding>
-            <element signature="e#183#196#0" expanded="true" />
-            <element signature="e#1025#1195#0" expanded="false" />
-            <element signature="e#4456#4578#0" expanded="false" />
-            <element signature="e#4619#5081#0" expanded="false" />
-            <element signature="e#5150#6448#0" expanded="false" />
-            <element signature="e#6571#8502#0" expanded="false" />
-            <element signature="e#8564#9265#0" expanded="false" />
-            <element signature="e#9322#10562#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -368,40 +360,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Schedule.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" column="45" lean-forward="false" selection-start-line="8" selection-start-column="45" selection-end-line="8" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Event.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Task.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/temp.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="254">
-          <caret line="91" column="8" lean-forward="false" selection-start-line="91" selection-start-column="8" selection-end-line="91" selection-end-column="8" />
+        <state relative-caret-position="57">
+          <caret line="89" column="0" lean-forward="false" selection-start-line="89" selection-start-column="0" selection-end-line="142" selection-end-column="0" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
             <element signature="e#480#561#0" expanded="false" />
-            <element signature="e#595#910#0" expanded="false" />
             <element signature="e#949#1397#0" expanded="false" />
             <element signature="e#1437#2344#0" expanded="false" />
             <element signature="e#2387#2391#0" expanded="false" />
@@ -409,8 +374,72 @@
             <element signature="e#2561#2565#0" expanded="false" />
             <element signature="e#2603#2758#0" expanded="false" />
             <element signature="e#2812#2977#0" expanded="false" />
-            <marker date="1516247802000" expanded="false" signature="3020:3404" ph="..." />
+            <element signature="e#3029#3410#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Task.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="5" column="111" lean-forward="false" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="111" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+            <marker date="1516256422000" expanded="true" signature="155:734" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Schedule.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="16" column="14" lean-forward="false" selection-start-line="16" selection-start-column="14" selection-end-line="16" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Project.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="15" column="12" lean-forward="false" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Zenbot.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1013">
+          <caret line="157" column="30" lean-forward="false" selection-start-line="157" selection-start-column="30" selection-end-line="157" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+            <element signature="e#4820#5448#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/training_courses.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="78">
+          <caret line="255" column="0" lean-forward="true" selection-start-line="255" selection-start-column="0" selection-end-line="255" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="677">
+          <caret line="53" column="33" lean-forward="false" selection-start-line="53" selection-start-column="33" selection-end-line="53" selection-end-column="33" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Event.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="15" column="64" lean-forward="false" selection-start-line="15" selection-start-column="64" selection-end-line="15" selection-end-column="64" />
+          <folding />
         </state>
       </provider>
     </entry>
