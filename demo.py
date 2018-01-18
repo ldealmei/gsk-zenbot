@@ -3,8 +3,13 @@ import Task
 from Event import Meeting, Training
 import uuid
 from numpy.random import randint, choice
+import numpy as np
 
 import datetime
+
+from bokeh.io import show
+from bokeh.plotting import figure
+from bokeh.models import ColumnDataSource
 
 def get_random_cert() :
     cert = ''
@@ -51,12 +56,28 @@ def event_generator():
         project_id = ''
         participants = []
 
-        importance = randint(1,4)
+        return Meeting(start, end, loc, project_id, participants, tasks= [])
 
-    return Meeting(start, end, loc, project_id, participants, importance, urgency, tasks= [])
+def day_shift(date) :
+
+    return date - datetime.date.today()
+
+def plot_events(events) :
+
+    width = 1
+    data = {'top' : [ev.end.hour for ev in events],
+            'bottom' : [ev.start.hour for ev in events],
+            'left' : [ day_shift(ev.start.date).days for ev in events],
+            'right' : [ day_shift(ev.start.date).days + width  for ev in events],
+            'color' : [ 'blue' if type(ev) == type(Meeting) else 'red' for ev in events]}
+
+    p = figure(plot_width = 1000, plot_height = 600)
+
+    p.toolbar.logo = None
+
 
 params={'id':'',
-        'events' : [],
-        'tasks' : []}
+        'events' : [event_generator() for i in np.arange(20)],
+        'tasks' : [task_generator() for i in np.arange(50)]}
 
-bot1 = Zenbot()
+bot1 = Zenbot(params)

@@ -4,7 +4,7 @@ import datetime
 import Task
 import Schedule
 import Project
-import Event
+from Event import Training, Meeting
 
 #zenbot avatar
 class Zenbot(object):
@@ -13,7 +13,7 @@ class Zenbot(object):
 		self.personal_id = params['id']
 		self.zenbotid = uuid.uuid4()
 		#unclear how access is granted to new bots
-		self.accessdict = {'level1': zenbotid}
+		self.accessdict = {'level1': self.zenbotid}
 		# the following four must come from apis or something
 		self.certifications = {}
 		self.requiredcertifications = {}
@@ -55,58 +55,61 @@ class Zenbot(object):
 
 	#analyse zenbots stats that are relevant for current actions & evaluation
 	def current_analysis(self):
-		ach = achieved_analysis()
-		at = at_risk_analysis()
-		ov = overdue_analysis()
+		ach = self.achieved_analysis()
+		at = self.at_risk_analysis()
+		ov = self.overdue_analysis()
 		return([ach, at, ov])
 
 
 	#three functions that return particular statistics: achieved_analysis for tasks achieved that have a deadline in the last 7 days or in the future
 	def achieved_analysis(self):
-		achieved_tasks = [[task.description['title'], task.deadline, task.completed, task.estim_dur, task.time_spent, task.effort, task['description']] for task in self.tasks if task.deadline > task.date_completed and task.deadline + datetime.timedelta(days = 7) > datetime.datetime.today())]
-		achieved_df = pd.DataFrame(achieved_tasks)
-		achieved_df.columns = ['title','deadline', 'time completed' ,'estim_dur', 'time_spent', 'effort', 'description']
-		achieved_df['time difference (hours)'] = achieved_df['time_spent']/achieved_df['time_spent'] - achieved_df['estim_dur']
-		achieved_df['time difference (percent)'] = achieved_df['time_spent']/achieved_df['estim_dur'] * 100
+		# achieved_tasks = [[task.description['title'], task.deadline, task.completed, task.estim_dur, task.time_spent, task.effort, task['description']] for task in self.tasks if task.deadline > task.date_completed and task.deadline + datetime.timedelta(days = 7) > datetime.datetime.today())]
+		# achieved_df = pd.DataFrame(achieved_tasks)
+		# achieved_df.columns = ['title','deadline', 'time completed' ,'estim_dur', 'time_spent', 'effort', 'description']
+		# achieved_df['time difference (hours)'] = achieved_df['time_spent']/achieved_df['time_spent'] - achieved_df['estim_dur']
+		# achieved_df['time difference (percent)'] = achieved_df['time_spent']/achieved_df['estim_dur'] * 100
 
-		return(achieved_df)
+		# return(achieved_df)
+		return
 
 	#identifies tasks that are at risk of not being completed on time
 	def at_risk_analysis(self):
-		at_risk_tasks = [[task.description['title'], task.deadline, task.progress, ', '.join(task.dependency_of), task.estim_dur, task.time_spent, task.['description'] ] for task in self.tasks if (task.deadline - datetime.datetime.today() <  3*task.progress*task.dur_estim)]
-		at_risk_df = pd.DataFrame(at_risk_tasks)
-		at_risk_df.columns = ['title', 'deadline', 'progress', 'dependency_of', 'estim_dur', 'time_spent', 'description']
-		at_risk_df['time difference (hours)'] = at_risk_df['time_spent']/at_risk_df['time_spent'] - at_risk_df['estim_dur']
-		at_risk_df['time difference (percent)'] = at_risk_df['time_spent']/at_risk_df['estim_dur'] * 100
-		at_risk_df['remaining time'] = (1 - at_risk_df['progress']) * at_risk_df['estim_dur']
-		at_risk_df['remaining time recalibrated'] = (1 - at_risk_df['progress']) * at_risk_df['time_spent']
-		return(at_risk_df)
+		# at_risk_tasks = [[task.description['title'], task.deadline, task.progress, ', '.join(task.dependency_of), task.estim_dur, task.time_spent, task.['description'] ] for task in self.tasks if (task.deadline - datetime.datetime.today() <  3*task.progress*task.dur_estim)]
+		# at_risk_df = pd.DataFrame(at_risk_tasks)
+		# at_risk_df.columns = ['title', 'deadline', 'progress', 'dependency_of', 'estim_dur', 'time_spent', 'description']
+		# at_risk_df['time difference (hours)'] = at_risk_df['time_spent']/at_risk_df['time_spent'] - at_risk_df['estim_dur']
+		# at_risk_df['time difference (percent)'] = at_risk_df['time_spent']/at_risk_df['estim_dur'] * 100
+		# at_risk_df['remaining time'] = (1 - at_risk_df['progress']) * at_risk_df['estim_dur']
+		# at_risk_df['remaining time recalibrated'] = (1 - at_risk_df['progress']) * at_risk_df['time_spent']
+		# return(at_risk_df)
+		return
 
 	# identifies tasks that are already overdue
 	def overdue_analysis(self):
-		overdue_tasks = [[task.description['title'], task.deadline, task.progress, ', '.join(task.dependency_of), task.estim_dur, task.time_spent, task.['description'] ] for task in self.tasks if task.deadline < datetime.datetime.today() and task.progress < 1]
-		overdue_df = pd.DataFrame(overdue_tasks)
-		overdue_df.columns = ['title', 'deadline', 'progress', 'dependency_of', 'estim_dur', 'time_spent', 'description']
-		overdue_df['time difference (hours)'] = overdue_df['time_spent']/overdue_df['time_spent'] - overdue['estim_dur']
-		overdue_df['time difference (percent)'] = overdue_df['time_spent']/overdue_df['estim_dur'] * 100
-		overdue_df['remaining time'] = (1 - overdue_df['progress']) * overdue_df['estim_dur']
-		overdue_df['remaining time recalibrated'] = (1 - overdue_df['progress']) * overdue_df['time_spent']
+		# overdue_tasks = [[task.description['title'], task.deadline, task.progress, ', '.join(task.dependency_of), task.estim_dur, task.time_spent, task.['description'] ] for task in self.tasks if task.deadline < datetime.datetime.today() and task.progress < 1]
+		# overdue_df = pd.DataFrame(overdue_tasks)
+		# overdue_df.columns = ['title', 'deadline', 'progress', 'dependency_of', 'estim_dur', 'time_spent', 'description']
+		# overdue_df['time difference (hours)'] = overdue_df['time_spent']/overdue_df['time_spent'] - overdue['estim_dur']
+		# overdue_df['time difference (percent)'] = overdue_df['time_spent']/overdue_df['estim_dur'] * 100
+		# overdue_df['remaining time'] = (1 - overdue_df['progress']) * overdue_df['estim_dur']
+		# overdue_df['remaining time recalibrated'] = (1 - overdue_df['progress']) * overdue_df['time_spent']
 
-		return(overdue_df)
-
+		# return(overdue_df)
+		return
 
 	#removes tasks and events older than 30 days and then creates data for events and tasks with deadlines before now.
 	def report_past(self):
-		remove_old(days = 30, tasks = True, events = True)
+		# remove_old(days = 30, tasks = True, events = True)
+        #
+		# past_tasks = [[task.description['title'], task.deadline, task.completed, task.estim_dur, task.time_spent, task.effort, task['description'] for task in self.tasks if task.deadline < datetime.datetime.today()]
+		#
+		# past_df = pd.DataFrame(past_tasks)
+		# past_df.columns = ['title','deadline', 'time completed' ,'estim_dur', 'time_spent', 'effort', 'description']
+		# past_df['time difference (hours)'] = past_df['time_spent']/past_df['time_spent'] - past_df['estim_dur']
+		# past_df['time difference (percent)'] = past_df['time_spent']/past_df['estim_dur'] * 100
 
-		past_tasks = [[task.description['title'], task.deadline, task.completed, task.estim_dur, task.time_spent, task.effort, task['description'] for task in self.tasks if task.deadline < datetime.datetime.today()]
-		
-		past_df = pd.DataFrame(past_tasks)
-		past_df.columns = ['title','deadline', 'time completed' ,'estim_dur', 'time_spent', 'effort', 'description']
-		past_df['time difference (hours)'] = past_df['time_spent']/past_df['time_spent'] - past_df['estim_dur']
-		past_df['time difference (percent)'] = past_df['time_spent']/past_df['estim_dur'] * 100
-
-		return [past_df]
+		# return [past_df]
+		return
 
 	def make_today_schedule(self):
 
@@ -162,7 +165,7 @@ class Zenbot(object):
 		return urgency + pivotal_points
 
 
-	def arrange_meetings(self, datetime, listofattendees, importance = 5, urgency = 5, projectid):
+	def arrange_meetings(self, datetime, listofattendees, projectid, importance = 5, urgency = 5):
 		pass
 
 
@@ -177,9 +180,9 @@ class Zenbot(object):
 	#get feedback from user and feed data into task and event objects
 	def get_feedback(self):
 		for task in self.schedule.tasks:
-			get_feedback_on_task(task)
+			self.get_feedback_on_task(task)
 		for event in self.schedule.events:
-			get_feedback_on_event(event)
+			self.get_feedback_on_event(event)
 
 	#get boolean on attendance
 	def get_feedback_on_event(self, Event):
@@ -187,13 +190,13 @@ class Zenbot(object):
 
 	#get feedback on progress on task, the time spent on it, how much effort it took to work on it today (this can be averaged later)
 	def get_feedback_on_task(self, Task):
-		Task.progress = float(input('Please enter your progress on the task {0} as a number between 0 and 100.').format(Task.description['title'])/100
-		Hours = float(input('Please enter the time you spent on this task today in hours, e.g. 6.5 h for 6 hours, 30 minutes.'))
-		Task.time_spent += datetime.timedelta(hours = Hours)
+		# Task.progress = float(input('Please enter your progress on the task {0} as a number between 0 and 100.').format(Task.description['title'])/100
+		# Hours = float(input('Please enter the time you spent on this task today in hours, e.g. 6.5 h for 6 hours, 30 minutes.'))
+		# Task.time_spent += datetime.timedelta(hours = Hours)
+        #
+		# Task.effort.append(float(input('Please enter as how effortful you experienced working on this task, as a number between 0 and 5.').format(Task.description['title'])/5)
 
-		Task.effort.append(float(input('Please enter as how effortful you experienced working on this task, as a number between 0 and 5.').format(Task.description['title'])/5)
-
-
+		pass
 
 
 
