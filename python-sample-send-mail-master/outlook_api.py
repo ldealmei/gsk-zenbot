@@ -46,10 +46,10 @@ def authorized():
     response = MSGRAPH.authorized_response()
     flask.session['access_token'] = response['access_token']
 
-    return flask.redirect('/calendar')
+    return flask.redirect('/mailform')
 
 @APP.route('/calendar')
-def get_calender():
+def get_calendar():
 
     events  = MSGRAPH.get('me/events', headers=request_headers()).data
     print(events)

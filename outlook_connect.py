@@ -77,6 +77,10 @@ def request_headers(headers=None):
         default_headers.update(headers)
     return default_headers
 
+
+MSGRAPH.get('me', headers=request_headers())
+
+
 @APP.route('/')
 def get_my_events(access_token=None, user_email=None):
 

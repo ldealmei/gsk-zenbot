@@ -12,35 +12,9 @@ See LICENSE in the source repository root for complete license information. -->
     <body>
         <div class="container homepage-container">
             <div>
-                <h1>Send Mail</h1>
-                <form action="/send_mail">
-                    <table class="mailform-table">
-                        <tr>
-                            <th>From:</th>
-                            <td><input name="sender" class="form-inputs-readonly" value="{{ name }} <{{ email }}>" readonly></td>
-                            <td rowspan="3" width="150"><img class="profile-photo" src="data:image/png;base64,{{ photo_data }}"></td>
-                        </tr>
-                        <tr>
-                            <th>Attachment:</th>
-                            <td><input name="profile_pic" class="form-inputs-readonly" value="{{ profile_pic }}" readonly></td>
-                        </tr>
-                        <tr>
-                            <th>To:</th>
-                            <td><input name="email" class="form-inputs" value="{{ email }}" autofocus></td>
-                        </tr>
-                        <tr>
-                            <th>Subject:</th>
-                            <td colspan="2"><input name="subject" class="form-inputs" value="email from Microsoft Graph"></td>
-                        </tr>
-                        <tr>
-                            <th>Body:</th>
-                            <td colspan="2"><textarea class="form-inputs-body" name="body" cols="128" rows="25">{{ body }}</textarea></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td colspan="2"><input type="submit" value="Send Message" class="btn btn-primary btn-md"></td>
-                        </tr>
-                    </table>
+                <h1>Calendar View</h1>
+                <form action="/calendar">
+
                 </form>
             </div>
         </div>
