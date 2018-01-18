@@ -1,9 +1,11 @@
 import pandas as pd
 import uuid
 import datetime
+import numpy as np
+
 import Task
-import Schedule
-import Project
+from Schedule import Schedule
+from Project import Project
 from Event import Training, Meeting
 
 #zenbot avatar
@@ -113,23 +115,26 @@ class Zenbot(object):
 
 	def make_today_schedule(self):
 
-		events = [event for event in self.events if datetime.datetime.today.date() == event.start.date()]
+		events = [event for event in self.events if datetime.datetime.today().date() == event.start.date()]
 
 		time_available = datetime.timedelta(hours=8) - sum([ev.end - ev.start for ev in events], datetime.timedelta(0))
 
-		tasks = [self._ranking_function(task) for task in self.tasks]
+		tasks_scored = [{'task' : task, 'score' : self._ranking_function(task)} for task in self.tasks]
 
-		return Schedule(events, self._select_tasks(tasks, time_available))
+		return Schedule(events, self._select_tasks(tasks_scored, time_available))
 
 	def _select_tasks(self, tasks, time_available):
 		# TODO: ASSUMPTION : Tasks are small (a task cannot be more than 2-3 hour long)
 
 		selection = []
 
-		for task in tasks:
-			if time_available - (task.dur_estim) > datetime.timedelta(0):
-				selection.append(task)
-				time_available = time_available - (task.dur_estim)
+		ranks = np.argsort([t['score'] for t in tasks])
+
+		for r in ranks:
+			task = tasks[r]
+			if time_available - (task['task'].dur_estim) > datetime.timedelta(0):
+				selection.append(task['task'])
+				time_available = time_available - (task['task'].dur_estim)
 
 		return selection
 
@@ -145,8 +150,8 @@ class Zenbot(object):
 		time_left = datetime.datetime.today() - Task.deadline
 		time_needed = (1 - Task.progress) * Task.dur_estim
 
-		if (time_left.days - time_needed.days) < self._get_threshold(self, Task):
-			return 10 - (10.0 / self._get_threshold(self, Task)) * (time_left.days - time_needed.days)
+		if (time_left.days - time_needed.days) < self._get_threshold( Task):
+			return 10 - (10.0 / self._get_threshold(Task)) * (time_left.days - time_needed.days)
 		else:
 			return 0
 

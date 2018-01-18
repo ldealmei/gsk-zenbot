@@ -23,7 +23,7 @@ def get_random_cert() :
 
 def task_generator():
     project_id = uuid.uuid4()
-    deadline  = datetime.date.today() + datetime.timedelta(days = randint(1,21))
+    deadline  = datetime.datetime.combine(datetime.date.today() + datetime.timedelta(days = randint(1,21)), datetime.time(0))
     creator = ''
     dur_estim = datetime.timedelta(hours=randint(1,4))
     importance = randint(1,4)
@@ -100,7 +100,6 @@ def event_overlap(ev1,ev2) :
         if s in set2:
             overlap = True
             break
-    print(overlap)
     return overlap
 
 def resolve_conflicts(events) :
@@ -120,8 +119,14 @@ params={'id':'',
         'tasks' : [task_generator() for i in np.arange(100)]}
 
 # print(params['tasks'])
-print(len(params['events']))
 plot_events(params['events'])
 
 test_bot = Zenbot(params)
-print(test_bot.make_today_schedule())
+
+test_schedule = test_bot.make_today_schedule()
+
+print(len(test_schedule.events))
+[ev.prettify() for ev in test_schedule.events]
+
+print(len(test_schedule.tasks))
+[t.prettify() for t in test_schedule.tasks]

@@ -8,6 +8,13 @@ class Event() :
         self.end = end # datetime object
         self.loc = loc # object type to define - json
 
+    def prettify(self):
+        args = [a for a in dir(self) if not a.startswith('__') and not callable(getattr(self, a))]
+
+        print(self)
+        for arg in args :
+            print('  ' + arg + ' : ' , getattr(self, arg))
+
 class Meeting(Event):
     """
     Meeting class

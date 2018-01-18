@@ -21,6 +21,13 @@ class Task:
         self.effort = effort  # on a scale 1-5
         self.category = category # user-defined category
 
+    def prettify(self):
+        args = [a for a in dir(self) if not a.startswith('__') and not callable(getattr(self, a))]
+
+        print(self)
+        for arg in args :
+            print('  ' + arg + ' : ' , getattr(self, arg))
+
     def assign_to_project(self):
         #TODO
         pass
