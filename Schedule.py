@@ -12,6 +12,6 @@ class Schedule :
 
         self.workload = self.get_workload(self.events, self.tasks)
 
-    def get_workload(self):
+    def get_workload(self, events, tasks):
         #TODO : Compute workload based on the schedule
         return
