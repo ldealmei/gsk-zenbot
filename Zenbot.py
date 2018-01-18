@@ -79,66 +79,6 @@ class Zenbot(object):
 
 
 
-	
-	def make_today_schedule(self):
-
-		events = [event for event in self.events if datetime.datetime.today.date() == event.start.date()]
-
-		time_available = datetime.timedelta(hours=8) - sum([ev.end - ev.start for ev in events], datetime.timedelta(0))
-
-		tasks_and_ranks = [{'task':task, 'score': self._ranking_function(task)] for task in self.tasks]
-
-
-
-		schedule = Schedule(events, tasks[:5])
-
-		return schedule
-
-
-	#NOT CURRENTLY USED
-	def _select_tasks(self, tasks, time_available):
-		# TODO: ASSUMPTION : Tasks are small (a task cannot be more than 2-3 hour long)
-
-		selection = []
-
-		for task in tasks:
-			if time_available - (task.dur_estim) > datetime.timedelta(0):
-				selection.append(task)
-				time_available = time_available - (task.dur_estim)
-
-		return selection
-
-	def _get_threshold(self, Task):
-		# TODO: Make sense of this - super arbitrary
-
-		# simple linear relation to effort and importance
-		return Task.effort * Task.importance  # expressed in days
-
-	def _get_urgency(self, Task):
-		# on a scale 1-10
-
-		#this will be negative if not overdue
-		time_left = datetime.datetime.today() - Task.deadline
-		time_needed = (1 - Task.progress) * Task.dur_estim
-
-		if (time_left.days - time_needed.days) < self._get_threshold(Task):
-			return 10 - (10.0 / (self._get_threshold(Task) + 1 * (time_left.days - time_needed.days)) + 1)
-		else:
-			return 0
-
-	def _ranking_function(self, Task):
-		# Ideally this function would be a machine learning algorithm that evolves based on the results
-
-		# proxy value to urgency
-		urgency = self._get_urgency(Task)
-
-		# value due to the number of tasks it blocks (and their importance)
-		if len(Task.dependency_of) > 5:
-			pivotal_points = 5
-		else:
-			pivotal_points = len(Task.dependency_of)
-
-		return urgency + pivotal_points
 
 
 	def arrange_meetings(self, datetime, listofattendees, project_id, importance = 5, urgency = 5):
