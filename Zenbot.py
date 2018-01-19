@@ -10,6 +10,8 @@ from Event import Training, Meeting
 
 #zenbot avatar
 class Zenbot(object):
+
+
 	def __init__ (self, params):
 		# dictionary of personal id
 		self.personal_id = params['id']

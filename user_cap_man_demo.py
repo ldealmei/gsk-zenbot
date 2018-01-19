@@ -34,7 +34,26 @@ def dashboardize(p) :
     p.toolbar_location = None
     p.outline_line_color = None
 
-timeline = [0.99375,1.06875,1.0625,1.10625,1.11875,1.25625,1.06875,1.14375,1.1375,1.0875,1.2875,1,1.18125,1.16875,1.08125,1.11875]
+def get_day_workload(day_events) : # workload based on events and trainings
+
+    return sum([ev.end.hour -ev.start.hour for ev in day_events])
+
+def get_workload_timeline(events) :
+    timeline = []
+
+    events_day = [ev.start.date() for ev in events].sort()
+    for day in events_day :
+        events_of_the_day = [ev for ev in events if ev.start.date() == day]
+        timeline.append(get_day_workload(events_of_the_day))
+
+    return timeline
+
+# ----------------- GET DATA FROM REPORTS -----------------
+# get tasks df
+# get events
+events = get_report_events()
+
+timeline = get_workload_timeline(events)
 
 forecast = timeline.copy()
 shuffle(forecast)
@@ -42,6 +61,7 @@ shuffle(forecast)
 data = {'timeline': timeline, 'forecast' : forecast,
         'x_past' : [datetime.datetime(year = 2018,month = 1,day =i) for i in range(1,len(timeline)+1) ],
         'x_futur': [datetime.datetime.today() + datetime.timedelta(days=i) for i in range(1, len(timeline) + 1)]}
+
 source = ColumnDataSource(data)
 
 p_timeline = figure(plot_height = 300, plot_width = 300, y_range = [0, 1.5], title = 'Workload Timeline', x_axis_type = 'datetime')
