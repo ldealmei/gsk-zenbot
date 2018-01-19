@@ -63,8 +63,6 @@ p_training_kpi.add_layout(citation)
 
 dashboardize(p_training_kpi)
 
-
-
 p_indicators = figure(plot_height = 250, plot_width = 250, x_range = [0, 1.3])
 p_indicators.hbar(y='y', height=0.5, left=0, right='kpi', fill_alpha = 0.6, source = kpi_source)
 p_indicators.circle(x = 'kpi',y = 'y', name = 'tip', alpha = 0, hover_alpha = 1, source = kpi_source)
@@ -103,7 +101,7 @@ columns = [
         TableColumn(field="start", title="Date",  formatter=DateFormatter()),
         ]
 
-forth_table = DataTable(source=table_forth_source, columns=columns, width=400, height=280, title = "Trainings to come")
+forth_table = DataTable(source=table_forth_source, columns=columns, width=400, height=280)
 back_table = DataTable(source=table_back_source, columns=columns, width=400, height=280)
 
 show(gridplot([p_training_kpi,forth_table],[p_indicators, back_table],merge_tools=False))
