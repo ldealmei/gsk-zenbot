@@ -1,6 +1,8 @@
 import uuid
 import pandas as pd
-from Zenbot_demo import Zenbot_master
+from Zenbot_demo import Zenbot
+Zenbot_master = Zenbot(owner = {'name':000000}, events =[], tasks = [])
+
 
 class Team(object):
 	def __init__ (self, creator_id, zenbot_ids, description = ''):
@@ -17,7 +19,7 @@ class Team(object):
 			zenbotids_tocall= self.zenbot_ids
 		if caller_zenbotid in self.accessdict['level1'] or caller_zenbotid in self.accessdict['level2']:
 			for zenbotid in zenbotids_tocall:
-				zenbot = Zenbot_master.zenbot_dict[zenbotid]
+				zenbot = Zenbot.zenbot_dict[zenbotid]
 				report[zenbotid] = zenbot.report_tasks(caller_zenbotid)
 		else:
 			report = None
@@ -32,7 +34,7 @@ class Team(object):
 
 		if caller_zenbotid in self.accessdict['level1'] or caller_zenbotid in self.accessdict['level2'] or (caller_zenbotid in self.accessdict['level3'] and len(zenbotids_tocall) > 1):
 			report = self.report_tasks(caller_zenbotid)
-			
+
 			#TODO change this
 			n = 0
 			for zenbotid in zenbotids_tocall:
@@ -57,7 +59,7 @@ class Team(object):
 			zenbotids_tocall= self.zenbot_ids
 		if caller_zenbotid in self.accessdict['level1'] or caller_zenbotid in self.accessdict['level2'] or (caller_zenbotid in self.accessdict['level3'] and len(zenbotids_tocall) > 1):
 			for zenbotid in zenbotids_tocall:
-				zenbot = Zenbot_master.zenbot_dict[zenbotid]
+				zenbot = Zenbot.zenbot_dict[zenbotid]
 				certs[zenbotid] = {'certifications': zenbot.report_certifications(caller_zenbotid), 'requiredcertifications': zenbot.report_requiredcertifications(caller_zenbotid)}
 
 		return(certs)
@@ -70,7 +72,7 @@ class Team(object):
 			zenbotids_tocall= self.zenbot_ids
 		if caller_zenbotid in self.accessdict['level1'] or caller_zenbotid in self.accessdict['level2'] or (caller_zenbotid in self.accessdict['level3'] and len(zenbotids_tocall) > 1):
 			for zenbotid in zenbotids_tocall:
-				zenbot = Zenbot_master.zenbot_dict[zenbotid]
+				zenbot = Zenbot.zenbot_dict[zenbotid]
 				events[zenbotid] = zenbot.report_events(caller_zenbotid)
 
 		return events
@@ -84,7 +86,7 @@ class Team(object):
 			zenbotids_tocall= self.zenbot_ids
 		if caller_zenbotid in self.accessdict['level1'] or caller_zenbotid in self.accessdict['level2'] or (caller_zenbotid in self.accessdict['level3'] and len(zenbotids_tocall) > 1):
 			for zenbotid in zenbotids_tocall:
-				zenbot = Zenbot_master.zenbot_dict[zenbotid]
+				zenbot = Zenbot.zenbot_dict[zenbotid]
 				trainings[zenbotid] = zenbot.report_trainings()
 
 		return (trainings)
@@ -94,7 +96,7 @@ class Team(object):
 		if len(zenbotids_tocall) == 0:
 			zenbotids_tocall= self.zenbot_ids
 		for zenbotid in zenbotids_tocall:
-			zenbot = Zenbot_master.zenbot_dict[zenbotid]
+			zenbot = Zenbot.zenbot_dict[zenbotid]
 			report[zenbotid] = zenbot.report_info(caller_zenbotid)
 
 		return(report)

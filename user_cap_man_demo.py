@@ -53,10 +53,9 @@ def get_workload_timeline(events) :
 # get events
 events = get_report_events()
 
-timeline = get_workload_timeline(events)
+overall_timeline = get_workload_timeline(events)
 
-forecast = timeline.copy()
-shuffle(forecast)
+timeline = []
 
 data = {'timeline': timeline, 'forecast' : forecast,
         'x_past' : [datetime.datetime(year = 2018,month = 1,day =i) for i in range(1,len(timeline)+1) ],

@@ -3,7 +3,6 @@ import uuid
 import datetime
 from Task import Task
 from Schedule import Schedule
-from Team import Team
 from Event import Training, Meeting
 import numpy as np
 
@@ -39,11 +38,13 @@ class Zenbot(object):
                      'requiredcertifications': self.report_requiredcertifications(asker_zenbotid)})
 
     # creates a task and adds it to its list of tasks if appropriate
-    def add_task(self, zenbotid, adder_id, project_id=123456, deadline=datetime.datetime(2020, 2, 1, 0, 0, 0),
+    def add_task(self, zenbotid,  adder_id, project_id=123456, deadline=datetime.datetime(2020, 2, 1, 0, 0, 0),
                  dur_estim=datetime.timedelta(days=1), importance=1, effort=2, category='type1',
                  description={'title': 'task1', 'description': 'do this'}):
+        print(adder_id)
         newtask = Task(project_id=project_id, deadline=deadline, creator=adder_id, dur_estim=dur_estim,
                        importance=importance, effort=effort, category=category, description=description)
+        asker_zenbotid = adder_id
         if zenbotid in self.accessdict['level1'] or asker_zenbotid in self.accessdict['level2']:
             self.tasks.append(newtask)
         else:
@@ -236,5 +237,3 @@ class Zenbot(object):
                            event.end is not None or event.end + datetime.timedelta(days=30) > datetime.datetime.today()]
 
 
-
-Zenbot_master = Zenbot('master',[],[])

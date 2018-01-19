@@ -1,0 +1,188 @@
+#:kivy 1.8.0
+#:import label kivy.uix.label
+#:import sla kivy.adapters.simplelistadapter
+
+# set default_font_name "DejaVuSans.ttf"
+
+<Menu@Button>:
+#    font_name: "DejaVuSans.ttf"
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: "GSK1.jpg"
+
+
+    BoxLayout:
+        orientation: 'vertical'
+        spacing: 10
+
+
+        Label:
+            size_hint_x:1
+            size_hint_y:1
+            pos_hint:  { 'root_y' : .95 } 
+            background_color: (1.0, 1, 1, 0.6)
+            text: "[sub]Zen[/sub][color=3333ff][b]Bot[/b][/color]"
+            markup: True
+            font_name: "Roboto-BoldItalic.ttf"
+            font_size: self.height/3
+        Button:
+            text:'My Team'
+            font_name: "Roboto-BoldItalic.ttf"
+            color: 0,0,0,1
+            size_hint_x:0.3
+            size_hint_y:0.2
+            background_color: (1.0, 0.5, 0, 0.05)
+            radius: [50,]
+            pos_hint: { 'center_x' : 0.5 , 'center_y' : 0.5}
+            on_press: root.my_team()
+
+        Button:
+            text:'My Capacity Management'
+            font_name: "Roboto-BoldItalic.ttf"
+            color: 0,0,0,1
+            size_hint_x:0.3
+            size_hint_y:0.2
+            background_color: (1.0, 0.5, 0, 0.05)
+            radius: [50,]
+            pos_hint: { 'center_x' : 0.5 , 'center_y' : 0.5}
+            on_press: root.my_capman()
+        
+        Button:
+            text:'My Formation'
+            font_name: "Roboto-BoldItalic.ttf"
+            color: 0,0,0,1
+            size_hint_x:0.3
+            size_hint_y:0.2
+            background_color: (1.0, 0.5, 0, 0.05)
+            radius: [50,]
+            pos_hint: { 'center_x' : 0.5 , 'center_y' : 0.5}
+            on_press: root.my_dashboard()
+
+        Button:
+            text: 'Daily Planner'
+            font_name: "Roboto-BoldItalic.ttf"
+            color: 0,0,0,1
+            size_hint_x:0.3
+            size_hint_y:0.2
+            background_color: (1.0, 0.5, 0, 0.05)
+            radius: [50,]
+            pos_hint: { 'center_x' : 0.5 , 'center_y' : 0.5}
+            on_press: root.manager.current = 'planner'
+
+
+        Button:
+            id: close
+            text: 'Close'
+            font_name: "Roboto-BoldItalic.ttf"
+            color: 0,0,0,1
+            size_hint_x:0.3
+            size_hint_y:0.2
+            pos_hint: { 'center_x' : .5 }
+            background_color: (1.0,0.5, 0, 0.05)
+            on_press: root.exit()
+
+
+<Planner>:
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: "GSK1.jpg"
+    
+    box: box
+    box1: box1
+    box2: box2
+    box3: box3
+    box4: box4
+    box5: box5
+
+    BoxLayout:
+
+        pos_hint: { 'center_x' : .5, 'center_y' : 0.95}
+        orientation: 'vertical'
+        underline: True
+        BoxLayout:
+            id: box
+            size_hint: 1, 0.1
+            background_color: (1.0, 1, 1, 0.6)
+    BoxLayout:
+        pos_hint: { 'center_x' : .5, 'center_y' : 0.9 }
+        orientation: 'vertical'
+        BoxLayout:
+            id: box1
+            size_hint: 1, 0.1
+
+    BoxLayout:
+        pos_hint: { 'center_x' : .5 ,'center_y' : 0.5 }
+        orientation: 'vertical'
+        size_hint:1, 0.75
+        BoxLayout:
+            pos_hint: { 'center_x' : .1 }
+            id: box3
+            
+            size_hint: 1, 0.1
+        BoxLayout:
+            pos_hint: { 'center_x' : .3 }
+            orientation: 'horizontal'
+            id: box2
+        BoxLayout:
+            pos_hint: { 'center_x' : .1 }
+            id: box4
+            size_hint: 1, 0.1
+        BoxLayout:
+            orientation: 'vertical'
+            id: box5
+
+
+    BoxLayout:
+        BoxLayout:
+            size_hint: 1, 0.1
+            #Button:
+            #    text:  "Register me"
+            #    on_press: root.register()
+            Button:
+                text: 'Back to menu'
+   #             on_press: root.registered()
+                on_press: root.manager.current = 'menu'
+                background_color: (1.0, 0.5, 0, 0.05)
+
+
+<MyTeam>:
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: "GSK1.jpg"
+
+    BoxLayout:
+        BoxLayout:
+            size_hint: 1, 0.1
+            #Button:
+            #    text:  "Register me"
+            #    on_press: root.register()
+            Button:
+                text: 'Back to menu'
+   #             on_press: root.registered()
+                on_press: root.manager.current = 'menu'
+                background_color: (1.0, 0.5, 0, 0.05)
+
+<CapMan>:
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: "GSK1.jpg"
+
+    BoxLayout:
+        BoxLayout:
+            size_hint: 1, 0.1
+            #Button:
+            #    text:  "Register me"
+            #    on_press: root.register()
+            Button:
+                text: 'Back to menu'
+   #             on_press: root.registered()
+                on_press: root.manager.current = 'menu'
+                background_color: (1.0, 0.5, 0, 0.05)
